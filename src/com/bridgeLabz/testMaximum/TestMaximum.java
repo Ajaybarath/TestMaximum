@@ -1,6 +1,12 @@
 package com.bridgeLabz.testMaximum;
 
-public class TestMaximum {
+public class TestMaximum <E extends Comparable <E>> {
+	
+	E testCase[];
+	
+	public TestMaximum(E testCase[]) {
+		this.testCase = testCase;
+	}
 	
 	public static void main(String args[]) {
 
@@ -18,23 +24,23 @@ public class TestMaximum {
 
 
 		
-		findMaximum(integerTestCase1);
-		findMaximum(integerTestCase2);
-		findMaximum(integerTestCase3);
-		
-		findMaximum(floatTestCase1);
-		findMaximum(floatTestCase2);
-		findMaximum(floatTestCase3);
-		
-		findMaximum(stringTestCase1);
-		findMaximum(stringTestCase2);
-		findMaximum(stringTestCase3);
+		new TestMaximum<Integer>(integerTestCase1).findMaximum();
+		new TestMaximum<Integer>(integerTestCase2).findMaximum();
+		new TestMaximum<Integer>(integerTestCase3).findMaximum();
+
+		new TestMaximum<Float>(floatTestCase1).findMaximum();
+		new TestMaximum<Float>(floatTestCase2).findMaximum();
+		new TestMaximum<Float>(floatTestCase3).findMaximum();
+
+		new TestMaximum<String>(stringTestCase1).findMaximum();
+		new TestMaximum<String>(stringTestCase2).findMaximum();
+		new TestMaximum<String>(stringTestCase3).findMaximum();
 
 	}
 
-	private static <T extends Comparable<T>> void findMaximum(T testCase[]) {
+	void findMaximum() {
 
-		T maximum = testCase[0];
+		E maximum = testCase[0];
 		
 		for (int i=0;i<3;i++) {
 			if (maximum.compareTo(testCase[i]) < 0) {
